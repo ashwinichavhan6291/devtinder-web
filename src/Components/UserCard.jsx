@@ -3,7 +3,7 @@ const UserCard = ({ user }) => {
   // console.log("Photo URL:", photourl);
 
   return (
-    <div className="card card-compact bg-base-300 w-96 shadow-xl ">
+    <div className="card card-compact bg-base-300 w-96 shadow-xl  ">
       <figure>
         <img alt="photo" src={photourl} />
       </figure>
