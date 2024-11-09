@@ -32,10 +32,17 @@ const Feed = () => {
       // <div>
       //   <h1 className=" flex justify-center font-bold">No new Users Found</h1>
       // </div>
-      <div className="flex justify-center items-center my-10">
-        <div className="card bg-slate-400 text--black w-96 ">
-          <div className="card-body">
-            <h2 className="card-title ">No User Found!</h2>
+      <div className="flex justify-center my-20">
+        <div className=" card glass w-96 ">
+          <figure>
+            <img
+              src="https://img.freepik.com/premium-photo/sad-cartoon-boy_1003030-3981.jpg"
+              alt="car!"
+            />
+          </figure>
+
+          <div className="card-body ">
+            <h2 className="card-title">oops! No User Found</h2>
           </div>
         </div>
       </div>

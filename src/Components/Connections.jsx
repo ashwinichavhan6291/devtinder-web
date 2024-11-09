@@ -23,7 +23,22 @@ const Connections = () => {
   }, []);
 
   if (!connections) return;
-  if (connections.length == 0) return <h1>No Connections Found</h1>;
+  if (connections.length == 0)
+    return (
+      <div className="flex justify-center my-20">
+        <div className="card glass w-96 bg-slate-400">
+          <figure>
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF67q_eWV1ZJct_Ln06ekzuyJ3jiGywksLVVTHb4ZD0WkD8VloT37JmX216EJ1q4t8pBo&usqp=CAU"
+              alt="car!"
+            />
+          </figure>
+          <div className="card-body">
+            <h2 className="card-title">No Connection Requests Found</h2>
+          </div>
+        </div>
+      </div>
+    );
 
   return (
     <div className=" text-center my-10">
