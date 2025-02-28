@@ -9,6 +9,7 @@ const EditProfile = ({ user }) => {
   const [firstName, setFirstName] = useState(user.firstName);
   const [lastName, setLastName] = useState(user.lastName);
   const [age, setAge] = useState(user.age);
+  const [skills, setSkill] = useState(user.skills);
   const [gender, setGender] = useState(user.gender);
   const [about, setAbout] = useState(user.about);
   const [photourl, setPhotoUrl] = useState(user.photourl);
@@ -66,6 +67,18 @@ const EditProfile = ({ user }) => {
                   onChange={(e) => setLastName(e.target.value)}
                 />
               </label>
+
+              <label className="form-control w-full max-w-xs my-2">
+                <div className="label ">
+                  <span className="label-text text-white">Skills</span>
+                </div>
+                <input
+                  type="text"
+                  value={skills}
+                  className="input input-bordered w-full max-w-xs text-black"
+                  onChange={(e) => setSkill(e.target.value)}
+                />
+              </label>
               <label className="form-control w-full max-w-xs my-2">
                 <div className="label ">
                   <span className="label-text text-white">Age</span>
@@ -121,7 +134,9 @@ const EditProfile = ({ user }) => {
           </div>
         </div>
       </div>
-      <UserCard user={{ firstName, lastName, age, gender, about, photourl }} />
+      <UserCard
+        user={{ firstName, lastName, age, gender, about, photourl, skills }}
+      />
 
       {showToast && (
         <div className="toast toast-top toast-center">

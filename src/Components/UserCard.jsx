@@ -4,7 +4,8 @@ import { BASE_URL } from "../utils/constants";
 import { removeUserFromFeed } from "../utils/feedSlice";
 
 const UserCard = ({ user }) => {
-  const { _id, firstName, lastName, photourl, age, gender, about } = user;
+  const { _id, firstName, lastName, photourl, age, gender, about, skills } =
+    user;
   const dispatch = useDispatch();
   const handleSendRequest = async (status, userId) => {
     try {
@@ -25,6 +26,7 @@ const UserCard = ({ user }) => {
       <div className="card-body">
         <h2 className="card-title">{firstName + " " + lastName}</h2>
         {age && gender && <p>{age + " " + gender}</p>}
+        {skills && <p>{skills}</p>}
         <p className="break-words">{about}</p>
         <div className="card-actions justify-center my-3">
           <button
