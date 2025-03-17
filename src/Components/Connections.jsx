@@ -4,7 +4,12 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addConnections } from "../utils/connectionSlice";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+
+
 const Connections = () => {
+ 
+  
   const connections = useSelector((store) => store.connections);
   const dispatch = useDispatch();
   const fetchConnections = async () => {
@@ -35,6 +40,7 @@ const Connections = () => {
           </figure>
           <div className="card-body">
             <h2 className="card-title">No Connection Requests Found</h2>
+            
           </div>
         </div>
       </div>
@@ -63,7 +69,9 @@ const Connections = () => {
               </h2>
               {age && gender && <p>{age + " " + gender}</p>}
               <p>{about}</p>
+            
             </div>
+            <Link to={`/chat/${_id}`}><button className="btn btn-primary">Chat</button></Link>
           </div>
         );
       })}

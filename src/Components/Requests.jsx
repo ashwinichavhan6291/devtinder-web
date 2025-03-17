@@ -7,7 +7,9 @@ import { useSelector } from "react-redux";
 
 const Requests = () => {
   const requests = useSelector((store) => store.requests);
-  console.log(requests);
+
+  
+  
   const dispatch = useDispatch();
   const fetchRequests = async () => {
     try {
@@ -16,7 +18,7 @@ const Requests = () => {
       });
       dispatch(addRequests(res.data.data));
     } catch (err) {
-      // console.error(err);
+      console.error(err);
     }
   };
 
@@ -37,7 +39,7 @@ const Requests = () => {
   }, []);
 
   if (!requests) return;
-  if (requests.length == 0)
+  if (requests.length == 0) 
     return (
       // <h1>No Requests Found</h1>;
       <div className="flex justify-center my-20">
@@ -59,7 +61,11 @@ const Requests = () => {
     <div className=" text-center my-10">
       <h1 className="text-bold text-black text-3xl">Connections Requests</h1>
 
-      {requests.map((request) => {
+      {requests?.map((request) => {
+
+        if(!request.fromUserId){
+          return 
+        }
         const { _id, firstName, lastName, photourl, age, gender, about } =
           request.fromUserId;
 
