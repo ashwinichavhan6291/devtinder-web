@@ -19,14 +19,14 @@ const EditProfile = ({ user }) => {
   const saveProfile = async () => {
     setError("");
     try {
-      const res = await axios.patch(
-        BASE_URL + "/profile/edit",
+      const res = await axios.post(
+        BASE_URL+"/profile/edit",
         { firstName, lastName, age, gender, photourl, about },
         {
           withCredentials: true,
         }
       );
-      //   console.log(res);
+         console.log("res" ,res.data.data);
       dispatch(addUser(res?.data?.data));
       setShowToast(true);
 
@@ -34,15 +34,15 @@ const EditProfile = ({ user }) => {
         setShowToast(false);
       }, 3000);
     } catch (err) {
-      setError(err.response.data);
+      setError(err.response?.data);
     }
   };
 
   return (
-    <div className=" h-300 flex justify-center">
-      <div className="flex justify-center mx-10 ">
+    <div className=" h-300 flex justify-center m-5 overflow-hidden">
+      <div className="flex justify-center ml-10 h-2/3">
         <div className="card bg-base-content text-white w-96 shadow-xl ">
-          <div className="card-body">
+          <div className="card-body p-6">
             <h2 className="card-title justify-center">Edit Profile</h2>
             <div>
               <label className="form-control w-full max-w-xs my-2">

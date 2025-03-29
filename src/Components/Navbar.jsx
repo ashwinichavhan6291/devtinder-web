@@ -6,6 +6,7 @@ import { removeUser } from "../utils/userSlice";
 
 const Navbar = () => {
   const user = useSelector((store) => store.user);
+  console.log("userrrr " , user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -24,9 +25,9 @@ const Navbar = () => {
           DevTinder
         </Link>
       </div>
-      {user && (
+      {user.userData && (
         <div className="flex-none gap-2">
-          <div className="form-control">Welcome,{user.firstName}</div>
+          <div className="form-control font-semibold">Welcome, {user.userData.firstName}</div>
           <div className="dropdown dropdown-end mx-4 flex item-center">
             <div
               tabIndex={0}
@@ -34,7 +35,7 @@ const Navbar = () => {
               className="btn btn-ghost btn-circle avatar"
             >
               <div className="w-10 rounded-full">
-                <img alt="user photo" src={user.photourl} />
+                <img alt="user photo" src={user.userData.photourl} />
               </div>
             </div>
             <ul
